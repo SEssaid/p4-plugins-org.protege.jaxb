@@ -157,7 +157,7 @@ id=${plugin}
 version=${bundle.version}
 download=http://smi-protege.stanford.edu/protege4/plugins/4.1/${plugin}.jar
 name=JAXB Library
-readme=http://smi-protege.stanford.edu/protege4/plugins/4.1/dlquery-readme.html
+readme=http://smi-protege.stanford.edu/protege4/plugins/4.1/jaxb-readme.html
 license=http://www.gnu.org/licenses/lgpl.html
 author=Timothy and Jennifer
        </echo>
@@ -179,11 +179,8 @@ author=Timothy and Jennifer
    </target>
 
    <target name = "install" depends = "jar">
-     <!-- flush cache -->
-     <delete dir = "${protege.home}/configuration/org.eclipse.core.runtime"/>
-     <delete dir = "${protege.home}/configuration/org.eclipse.osgi"/>
      <copy file="${build}/${plugin}.jar" 
-           todir = "${protege.plugins}"
+           todir = "${protege.common}"
            overwrite = "true"/>
    </target>
 
