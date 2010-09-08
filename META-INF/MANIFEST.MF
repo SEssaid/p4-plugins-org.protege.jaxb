@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Jaxb
+Bundle-Name: JAXB Libraries
 Bundle-SymbolicName: org.protege.jaxb
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.0
 Bundle-ClassPath: .,
  lib/activation.jar,
  lib/jaxb-api.jar,
@@ -29,4 +29,4 @@ Import-Package: org.osgi.framework,
  javax.xml.stream,
  javax.xml.stream.events,
  javax.xml.stream.util
-Bundle-Description: JAXB Libraries
+Bundle-Description: JAXB Libraries Packaged as a bundle
