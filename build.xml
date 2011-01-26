@@ -88,8 +88,6 @@
          <available file="${protege.osgi}" type="file"/>
 	     <available file="${equinox.common}" type = "file"/>
 	     <available file="${equinox.registry}" type = "file"/>
-	     <available file="${owl.editor.jar}" type = "file"/>
-         <available file="${owl.lib}" type="file"/>
        </and>
      </condition>
      <path id = "project.classpath">    
@@ -97,8 +95,6 @@
        <pathelement location="${protege.lib}"/>
        <pathelement location="${equinox.common}"/>
        <pathelement location="${equinox.registry}"/>
-       <pathelement location="${owl.editor.jar}"/>
-       <pathelement location="${owl.lib}"/>
        <fileset dir="${lib}"/>
        <fileset dir="${genlib}"/>
      </path>
@@ -116,7 +112,7 @@
    </target>
 
 
-   <target name="build.manifest">
+   <target name="build.manifest" depends = "init">
      <copy tofile="${manifest}" 
            file="META-INF/MANIFEST.MF" overwrite="true"/>
      <manifest file="${manifest}" 
@@ -163,16 +159,7 @@ author=Timothy and Jennifer
        </echo>
    </target>
 
-   <target name = "compile" depends = "buildlibs, checkProtegeLibsAndReport">
-     <javac srcdir = "${src}"
-            destdir = "${classes}" 
-            debug="on"
-            includeAntRuntime="false">
-       <classpath refid = "project.classpath"/>  
-     </javac>
-   </target>
-
-   <target name = "jar" depends = "compile, copy.resources, create.update.properties">
+   <target name = "jar" depends = "copy.resources, create.update.properties">
      <jar jarfile = "${build}/${plugin}.jar"
           basedir = "${classes}" 
           manifest = "${build}/manifest.mf"/>
